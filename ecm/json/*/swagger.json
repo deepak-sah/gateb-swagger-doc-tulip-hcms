@@ -1,0 +1,473 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "ECM HCMS-deepak",
+    "description" : "API to get the Info from BJB HCMS",
+    "version" : "0.1"
+  },
+  "servers" : [ {
+    "url" : "http://3.122.242.96:8080"
+  }, {
+    "url" : "http://bjb.hcms.com"
+  } ],
+  "paths" : {
+    "/hcms/v1.5/entity/contentUnitArticle" : {
+      "get" : {
+        "tags" : [ "Content Unit Article" ],
+        "description" : "Content Unit Article Information",
+        "parameters" : [ {
+          "name" : "query",
+          "in" : "query",
+          "description" : "content Unit ID of Content Unit Article. eg. cuid=975551",
+          "required" : true,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation returns a set of content unit summary objects",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/ContentUnitArticle"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request"
+          }
+        },
+        "servers" : [ {
+          "url" : "http://3.122.242.96:8080"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://3.122.242.96:8080"
+      } ]
+    },
+    "/hcms/v1.5/entity/contentUnitText" : {
+      "get" : {
+        "tags" : [ "Content Unit Text" ],
+        "description" : "Content Unit Article Information",
+        "parameters" : [ {
+          "name" : "query",
+          "in" : "query",
+          "description" : "content Unit ID of Content Unit Article. eg. parent.cuid=\"975551\"&lang=\"de\"",
+          "required" : true,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful operation returns a set of content unit summary objects",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/ContentUnitText"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request"
+          }
+        },
+        "servers" : [ {
+          "url" : "http://3.122.242.96:8080"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://3.122.242.96:8080"
+      } ]
+    },
+    "/hcms/v1.5/entity/contentUnitText/{id}" : {
+      "get" : {
+        "tags" : [ "Content Unit Text by ID" ],
+        "description" : "Content Unit Article Information",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "a unique ID can be given as a parameter to get the content unit with ID",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful operation returns a set of content unit summary objects",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/ContentUnitText"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request"
+          }
+        },
+        "servers" : [ {
+          "url" : "http://3.122.242.96:8080"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://3.122.242.96:8080"
+      } ]
+    },
+    "/hcms/v1.5/entity/image" : {
+      "get" : {
+        "tags" : [ "Image list" ],
+        "description" : "List of all the Image used",
+        "responses" : {
+          "200" : {
+            "description" : "Successful operation returns a set of content unit summary objects",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Image"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request"
+          }
+        },
+        "servers" : [ {
+          "url" : "http://3.122.242.96:8080"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://3.122.242.96:8080"
+      } ]
+    },
+    "/hcms/v1.5/entity/image/{id}" : {
+      "get" : {
+        "tags" : [ "Image by ID" ],
+        "description" : "Information for a single Image",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Image ID",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful operation returns a set of content unit summary objects",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Image"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request"
+          }
+        },
+        "servers" : [ {
+          "url" : "http://3.122.242.96:8080"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://3.122.242.96:8080"
+      } ]
+    },
+    "/hcms/v1.0/entity/contentUnitArticle/{id}/media/{hash}/{variant}" : {
+      "get" : {
+        "tags" : [ "Image vaiant by storage key" ],
+        "description" : "Image vaiant by storage key",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Article ID",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "hash",
+          "in" : "path",
+          "description" : "Image variant hash which comes in image url",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        }, {
+          "name" : "variant",
+          "in" : "path",
+          "description" : "Image storage key name",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful operation returns a set of content unit summary objects",
+            "content" : {
+              "image/*" : {
+                "schema" : {
+                  "type" : "string",
+                  "format" : "binary"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request"
+          }
+        },
+        "servers" : [ {
+          "url" : "http://3.122.242.96:8080"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://3.122.242.96:8080"
+      } ]
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "ContentUnitArticle" : {
+        "type" : "object",
+        "properties" : {
+          "contentLevel" : {
+            "type" : "string",
+            "description" : "The level of content. Values can be 1,2,3"
+          },
+          "creationDate" : {
+            "type" : "string",
+            "description" : "Date of creation."
+          },
+          "cuid" : {
+            "type" : "array",
+            "description" : "Array of CUID of Article",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "id" : {
+            "type" : "integer",
+            "description" : "Article ID"
+          },
+          "keyVisual" : {
+            "type" : "array",
+            "description" : "Keyvisual Items",
+            "items" : {
+              "$ref" : "#/components/schemas/Image"
+            }
+          },
+          "keywords" : {
+            "type" : "string",
+            "description" : "Keywords seperated by comas"
+          },
+          "modifiedDate" : {
+            "type" : "string",
+            "description" : "Modification Date - yyyy-MM-ddThh:mm:ssZ"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name of Article Asset"
+          },
+          "publicationType" : {
+            "type" : "string",
+            "description" : "Publication Type - like Investment view, Market Opportunity"
+          },
+          "subPublicationType" : {
+            "type" : "string",
+            "description" : "Sub-Publication Type - like speacial, standard"
+          },
+          "successor" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ContentUnitArticle_successor"
+            }
+          },
+          "successorChilds" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ContentUnitArticle_successorChilds"
+            }
+          },
+          "successorParent" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ContentUnitArticle_successorChilds"
+            }
+          },
+          "text" : {
+            "$ref" : "#/components/schemas/ContentUnitArticle_text"
+          },
+          "version" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "ContentUnitText" : {
+        "type" : "object",
+        "properties" : {
+          "contentLevel" : {
+            "type" : "string",
+            "description" : "The level of content. Values can be 1,2,3"
+          },
+          "creationDate" : {
+            "type" : "string",
+            "description" : "Date of creation - yyyy-MM-ddThh:mm:ssZ."
+          },
+          "id" : {
+            "type" : "integer",
+            "description" : "Text asset ID"
+          },
+          "images" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Image"
+            }
+          },
+          "lang" : {
+            "type" : "string",
+            "description" : "Keywords"
+          },
+          "modifiedDate" : {
+            "type" : "string",
+            "description" : "Modification Date - yyyy-MM-ddThh:mm:ssZ"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name of text Asset"
+          },
+          "parent" : {
+            "$ref" : "#/components/schemas/ContentUnitArticle_successorChilds"
+          },
+          "url" : {
+            "type" : "string",
+            "description" : "Link of content of text asset"
+          },
+          "version" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "Image" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "description" : "Name of the image"
+          },
+          "id" : {
+            "type" : "string",
+            "description" : "ID of Image Asset."
+          },
+          "variants" : {
+            "type" : "string",
+            "description" : "Link of the variants endpoints. Different variants can be accessible by suffixing the keys preview, master, thumnail,16x9,3x4"
+          }
+        }
+      },
+      "ContentUnitArticle_successor" : {
+        "type" : "object",
+        "properties" : {
+          "key" : {
+            "type" : "string"
+          },
+          "value" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "Value of Feature - bjb:ecm.successorValue"
+            }
+          }
+        }
+      },
+      "ContentUnitArticle_successorChilds" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer"
+          },
+          "cuid" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "ContentUnitArticle_text_language" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer"
+          },
+          "images" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Image"
+            }
+          },
+          "url" : {
+            "type" : "string"
+          },
+          "version" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "ContentUnitArticle_text" : {
+        "type" : "object",
+        "properties" : {
+          "<language>" : {
+            "$ref" : "#/components/schemas/ContentUnitArticle_text_language"
+          }
+        }
+      }
+    }
+  }
+}
